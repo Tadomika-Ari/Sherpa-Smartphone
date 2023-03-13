@@ -1,0 +1,299 @@
+/*Fichier CSS pour le site Zozor*/
+/*Création: Mathieu Nébra*/
+/*Commentaires: P. Charmoille*/
+
+/*Définition des polices personnalisées*/
+
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('polices/ballpark.eot');
+    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('polices/ballpark.woff') format('woff'),
+         url('polices/ballpark.ttf') format('truetype'),
+         url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Eléments principaux de la page */
+
+body
+{
+    background: url('images/fond_bleu.png'); /*Image de fond*/
+	background-attachment: fixed; /* Le fond restera fixe */
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818; /* Couleur du texte*/
+}
+
+#bloc_page
+{
+    width: 900px; /*Largeur fixe du bloc page*/
+    margin: auto; /*Centrage en largeur*/
+}
+
+section h1, footer h1, nav a  /*Balises incluses (h1 dans section etc...)*/
+{
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase; /*Mise en majuscules*/
+}
+
+/* Header */
+
+header
+{
+    background: url('images/separateur.png') repeat-x bottom; /*image répétée sur une ligne alignée en bas du bloc header*/
+    display: flex; /*header devient un conteneur flexbox*/
+    justify-content: space-between; /*positionnement étiré sur l'axe principal*/
+    align-items: flex-end; /*positionnement en bas sur l'axe secondaire*/
+}
+
+#titre_principal
+{
+    display: flex; /*Titre principal devient un conteneur flexbox*/
+    flex-direction: column; /*arrangement vertical*/
+}
+
+#logo
+{
+    display: flex; /*logog est aussi un conteneur flexbox*/
+    flex-direction: row; /*arrangement horizontal*/
+    align-items: baseline; /*positionnement en bas sur l'axe secondaire*/
+}
+
+#logo img
+{
+	/*dimensions fixes de l'image du logo*/
+    width: 59px;
+    height: 60px;
+}
+
+header h1 /*titres H1 (zozor) dans le header*/
+{
+    font-family: 'BallparkWeiner', serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 0 0 0 10px; /*marge extérieure gauche de 10px pour le décaler un peu du logo*/
+}
+
+header h2 /*titres H2 (carnets de voyage) dans le header*/
+{
+    font-family: Dayrom, serif;
+    font-size: 1.1em;
+    margin-top: 0px; /*pas de marge exérieure haute*/
+    font-weight: normal;
+}
+
+/* Navigation */
+
+nav ul /*listes à puces dans nav*/
+{
+    list-style-type: none; /*pas de rond devant les puces*/
+    display: flex; /*La liste à puces est un conteneur flexbox pour permettre (par défaut) de mettre les liens en ligne*/
+}
+
+nav li
+{
+    margin-right: 15px; /*marges extérieures droite de 15px pour mettre des espaces entre les liens*/
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px; /*marge intérieure basse de 3px*/ 
+    text-decoration: none; /*pas d'effet sur le texte des liens (par défaut ils sont soulignés)*/
+}
+
+nav a:hover /* Apparence au survol des liens de nav (pseudo format)*/
+{
+    color: #FFFFFF; /*texte blanc*/
+    border-bottom: 3px solid #0000FF; /*soulignement*/
+}
+
+/* Bannière */
+
+#banniere_image
+{
+    margin-top: 15px; /*marge extérieure haute (pour la décaler par rapport au header)*/
+    height: 200px; /*Hauteur*/
+    border-radius: 5px; /*bords arrondis*/
+    background: url('images/sanfrancisco.jpg') no-repeat; /*pas de répétition du fond*/
+    position: relative; /*position relative par rapport au bloc page (pour permettre le positionnement absolu des blocs enfants)*/
+    box-shadow: 0px 4px 4px #1c1a19; /*ombre du bloc (décalages horizontal et vertical, adoucissement dégradé et couleur ombre)*/
+    margin-bottom: 25px; /*marge extérieure basse*/
+}
+
+#banniere_description
+{
+    position: absolute; /*positionnement absolu par rapport au bloc "banniere_image"*/
+    bottom: 0px; /*calé en bas du bloc*/
+    border-radius: 0px 0px 5px 5px; /*bords arrondis haut gauche, haut droite, bas droite, bas gauche*/
+    width: 99.5%; /*largeur en % du bloc*/
+    height: 33px; /*hauteur fixe*/
+    padding-top: 15px; /*marge intérieure haute*/
+    padding-left: 4px; /*marge intérieure gauche*/
+    background-color: rgba(24,24,24,0.8); /*transparence de 0,8*/
+    color: white;
+    font-size: 0.8em;
+    
+}
+
+.bouton_rouge
+{
+    height: 25px; /*hauteur fixe*/
+    position: absolute; /*positionnement absolu par rapport au bloc "banniere_image"*/
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fond_degraderouge.png') repeat-x; /*fond répété sur x*/
+    border: 1px solid #760001; /*bordure du bouton*/
+    border-radius: 5px; /*bors arrondis*/
+    font-size: 1.2em;
+    text-align: center; /*texte centré*/
+    padding: 3px 8px 0px 8px; /*marges intérieures (haut droite bas gauche) (la flèche est comptée avec le texte)*/
+    color: white;
+    text-decoration: none;
+}
+
+.bouton_rouge img
+{
+    border: 0; /*flèche blanche sans bordure*/
+}
+
+/* Corps */
+
+section
+{
+    display: flex; /*la section est un conteneur flexbox*/
+    margin-bottom: 20px; /*marges extérieures*/
+}
+
+article, aside
+{
+    text-align: justify; /*texte justifié*/
+}
+
+article
+{
+    margin-right: 20px; /*marge extérieure droite*/
+    flex: 3; /*l'article grossit pour occuper l'espace (gestion de la répartition horizontale avec le aside)*/
+}
+
+.ico_categorie
+{
+    vertical-align: middle; /*alignement des blocs centrés verticalement (pour aligner l'icone avec le texte à droite)*/
+    margin-right: 8px; /*marge extérieure droite*/
+}
+
+article p
+{
+    font-size: 0.8em;
+}
+
+aside
+{
+    flex: 1.2; /*l'aside grossit pour occuper l'espace (gestion de la répartition horizontale avec l'article)*/
+    position: relative; /*position relative par rapport au bloc section(pour permettre le positionnement absolu des blocs enfants)*/
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19; /*ombres*/
+    border-radius: 5px;
+    padding: 10px; /*marges intérieures*/
+    color: white;
+    font-size: 0.9em;
+}
+
+#fleche_bulle
+{
+    position: absolute; /*positionnement absolu par rapport au bloc aside*/
+    top: 100px;
+    left: -12px; /*pour qu'il soit à gauche du bord!*/
+}
+
+#photo_zozor
+{
+    text-align: center; /*centrage de l'image dans l'aside*/
+}
+
+#photo_zozor img
+{
+    border: 1px solid #181818; /*bordures de l'image*/
+}
+
+aside img
+{
+    margin-right: 5px; /*marge extérieure droite*/
+}
+
+/* Footer */
+
+footer
+{
+    display: flex; /*le footer est un conteneur flexbox donc tous les blocs enfants s'alignent horizontalement*/
+    background:  url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
+    padding-top: 25px; /*marge intérieure haute*/
+}
+
+footer p, footer ul
+{
+    font-size: 0.8em;
+}
+
+footer h1
+{
+    font-size: 1.1em;
+}
+
+
+#tweet
+{
+    width: 28%; /*largeur du bloc tweet (div)*/
+}
+
+#mes_photos
+{
+    width: 35%; /*largeur du bloc mes_photos (div)*/
+}
+
+#mes_amis
+{
+    width: 31%; /*largeur du bloc mes_amis (div)*/
+}
+
+#mes_photos img
+{
+    border: 1px solid #181818;
+    margin-right: 2px;
+}
+
+#listes_amis
+{
+    display: flex; /*listes_amis est un conteneur flexbox*/
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+#mes_amis ul
+{
+    list-style-image: url('images/ico_liensexterne.png'); /*images pour les puces*/
+    padding-left: 2px;
+}
+
+#mes_amis a
+{
+    text-decoration: none;
+    color: #760001;
+}
+
